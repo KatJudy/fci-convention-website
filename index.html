@@ -1,0 +1,1818 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2027 FCI Convention Registration</title>
+    <meta
+      name="description"
+      content="Registration website for the 2027 Floor Coverings International Convention at Hard Rock Riviera Maya."
+    />
+    <style>
+      :root {
+        --ink: #162029;
+        --muted: #5d6770;
+        --navy: #12314a;
+        --deep-navy: #0b2235;
+        --teal: #007f86;
+        --teal-dark: #00636a;
+        --lime: #8cc63f;
+        --lime-soft: #e6f5d7;
+        --coral: #e95f45;
+        --sky: #d9f1f3;
+        --paper: #fbfaf6;
+        --white: #ffffff;
+        --line: #dfe4e2;
+        --shadow: 0 18px 48px rgba(18, 49, 74, 0.14);
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        overflow-wrap: anywhere;
+      }
+
+      a,
+      button,
+      .card,
+      .price-card,
+      .event-row,
+      .form-shell,
+      .fact-panel,
+      .photo-grid figure,
+      .hotel-strip figure,
+      .hotel-photo {
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease,
+          color 180ms ease,
+          filter 220ms ease,
+          opacity 220ms ease,
+          transform 220ms ease;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--coral);
+        outline-offset: 3px;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 20;
+        transform: translateY(-140%);
+        border-radius: var(--radius);
+        padding: 10px 14px;
+        background: var(--white);
+        color: var(--navy);
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .skip-link:focus-visible {
+        transform: translateY(0);
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      section {
+        scroll-margin-top: 92px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .wrap {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(11, 34, 53, 0.97);
+        backdrop-filter: blur(12px);
+      }
+
+      .nav {
+        display: flex;
+        min-height: 70px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--white);
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3px;
+        transform: rotate(45deg);
+      }
+
+      .mark span {
+        background: var(--lime);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 14px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .nav-links a {
+        border-radius: 999px;
+        padding: 8px 10px;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        background: rgba(140, 198, 63, 0.16);
+        color: var(--lime);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 650px;
+        color: var(--white);
+        background: var(--deep-navy);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          linear-gradient(90deg, rgba(6, 24, 38, 0.97), rgba(18, 49, 74, 0.88) 44%, rgba(0, 127, 134, 0.42)),
+          linear-gradient(0deg, rgba(6, 24, 38, 0.24), rgba(6, 24, 38, 0.08));
+      }
+
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          url("assets/convention-photos/convention-networking.jpg?v=video-poster") center / cover,
+          var(--deep-navy);
+      }
+
+      .hero-video video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.82) contrast(1.08);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        z-index: 1;
+        height: 90px;
+        background: linear-gradient(0deg, var(--paper), rgba(251, 250, 246, 0));
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        min-height: 650px;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 410px);
+        gap: 42px;
+        align-items: center;
+        padding: 82px 0 112px;
+      }
+
+      .video-toggle {
+        position: absolute;
+        right: max(20px, calc((100% - 1180px) / 2));
+        bottom: 34px;
+        z-index: 2;
+        min-height: 38px;
+        border-color: rgba(255, 255, 255, 0.44);
+        padding: 0 12px;
+        background: rgba(6, 24, 38, 0.7);
+        color: var(--white);
+        box-shadow: none;
+      }
+
+      .video-toggle:hover,
+      .video-toggle:focus-visible {
+        border-color: var(--lime);
+        background: var(--deep-navy);
+        transform: none;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--lime);
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.04;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin-bottom: 18px;
+        font-size: clamp(46px, 7vw, 86px);
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        color: var(--navy);
+        font-size: clamp(34px, 4.6vw, 58px);
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        color: var(--navy);
+        font-size: 21px;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 20px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .btn,
+      button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid transparent;
+        border-radius: var(--radius);
+        padding: 0 16px;
+        background: var(--lime);
+        color: var(--navy);
+        cursor: pointer;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 900;
+        text-decoration: none;
+        box-shadow: 0 10px 22px rgba(18, 49, 74, 0.16);
+      }
+
+      .btn:hover,
+      button:hover,
+      .btn:focus-visible,
+      button:focus-visible {
+        border-color: var(--coral);
+        background: var(--deep-navy);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 16px 32px rgba(18, 49, 74, 0.22);
+      }
+
+      .btn.secondary {
+        border-color: rgba(255, 255, 255, 0.56);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--white);
+      }
+
+      .btn.text {
+        min-height: auto;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        color: var(--teal);
+        box-shadow: none;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      .btn.text:hover,
+      .btn.text:focus-visible {
+        background: transparent;
+        color: var(--deep-navy);
+        box-shadow: none;
+        transform: none;
+      }
+
+      .fact-panel {
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: var(--radius);
+        padding: 26px;
+        background: rgba(255, 255, 255, 0.18);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+      }
+
+      .fact-panel:hover,
+      .fact-panel:focus-within {
+        border-color: rgba(140, 198, 63, 0.72);
+        background: rgba(255, 255, 255, 0.24);
+        box-shadow: 0 26px 80px rgba(0, 0, 0, 0.28);
+        transform: translateY(-3px);
+      }
+
+      .fact-panel dl {
+        display: grid;
+        gap: 17px;
+        margin: 0;
+      }
+
+      .fact-panel dt {
+        color: var(--lime);
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .fact-panel dd {
+        margin: 3px 0 0;
+        color: var(--white);
+        font-size: 18px;
+        font-weight: 850;
+      }
+
+      .section {
+        padding: 82px 0;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(217, 241, 243, 0.32)),
+          var(--paper);
+      }
+
+      .section.white {
+        background:
+          linear-gradient(180deg, var(--white), #f6fbfb);
+      }
+
+      .section.navy {
+        color: var(--white);
+        background: var(--navy);
+      }
+
+      .section.navy h2,
+      .section.navy h3 {
+        color: var(--white);
+      }
+
+      .section:not(.navy) .eyebrow {
+        color: var(--teal);
+      }
+
+      .section-head {
+        max-width: 780px;
+        margin-bottom: 30px;
+      }
+
+      .section-head.center {
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .section.navy .lead {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .grid-3,
+      .grid-2 {
+        display: grid;
+        gap: 18px;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card,
+      .price-card,
+      .form-shell,
+      .issue-reader,
+      .event-row {
+        border: 1px solid #cdd9d6;
+        border-radius: var(--radius);
+        background: var(--white);
+        box-shadow: 0 12px 30px rgba(18, 49, 74, 0.08);
+      }
+
+      .card:hover,
+      .card:focus-within,
+      .price-card:hover,
+      .price-card:focus-within,
+      .event-row:hover,
+      .event-row:focus-within,
+      .form-shell:hover,
+      .form-shell:focus-within {
+        border-color: rgba(0, 127, 134, 0.55);
+        box-shadow: 0 20px 42px rgba(18, 49, 74, 0.16);
+        transform: translateY(-4px);
+      }
+
+      .card,
+      .price-card {
+        padding: 24px;
+      }
+
+      .label {
+        display: inline-flex;
+        margin-bottom: 14px;
+        border: 1px solid rgba(0, 127, 134, 0.22);
+        border-radius: 999px;
+        padding: 5px 10px;
+        background: var(--lime-soft);
+        color: var(--navy);
+        font-size: 11px;
+        font-weight: 950;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .price {
+        margin: 4px 0 8px;
+        color: var(--navy);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 41px;
+        font-weight: 900;
+      }
+
+      .fine,
+      .card p,
+      .price-card p {
+        color: var(--muted);
+      }
+
+      .fine {
+        font-size: 13px;
+      }
+
+      .notice {
+        border-left: 5px solid var(--coral);
+        padding: 18px 20px;
+        background: #fff3ee;
+        color: #623126;
+        font-weight: 800;
+      }
+
+      .form-shell {
+        overflow: hidden;
+      }
+
+      .tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border-bottom: 1px solid #c4d7d6;
+        background: #dbeeee;
+      }
+
+      .tab {
+        min-height: 58px;
+        border: 0;
+        border-right: 1px solid var(--line);
+        border-radius: 0;
+        background: transparent;
+        color: var(--navy);
+        box-shadow: none;
+        transform: none;
+      }
+
+      .tab:last-child {
+        border-right: 0;
+      }
+
+      .tab:hover,
+      .tab:focus-visible {
+        background: var(--deep-navy);
+        color: var(--white);
+        box-shadow: inset 0 -4px 0 var(--lime);
+        transform: none;
+      }
+
+      .tab[aria-selected="true"] {
+        background: var(--white);
+        color: var(--teal-dark);
+        box-shadow: inset 0 -4px 0 var(--coral);
+      }
+
+      .form-panel {
+        display: none;
+        padding: 28px;
+      }
+
+      .form-panel.active {
+        display: block;
+      }
+
+      .registration-card {
+        display: grid;
+        gap: 18px;
+        max-width: 760px;
+      }
+
+      .registration-card p {
+        color: var(--muted);
+      }
+
+      .registration-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      form {
+        display: grid;
+        gap: 18px;
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+        color: var(--navy);
+        font-size: 13px;
+        font-weight: 850;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid #cfd8d5;
+        border-radius: var(--radius);
+        padding: 10px 12px;
+        color: var(--ink);
+        background: var(--white);
+        font: inherit;
+      }
+
+      textarea {
+        min-height: 112px;
+        resize: vertical;
+      }
+
+      .checkbox-row {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .checkbox-row input {
+        width: 18px;
+        min-height: 18px;
+        margin-top: 3px;
+      }
+
+      .event-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .faq-item {
+        border: 1px solid #cdd9d6;
+        border-radius: var(--radius);
+        background: var(--white);
+        box-shadow: 0 12px 30px rgba(18, 49, 74, 0.08);
+        transition:
+          border-color 180ms ease,
+          box-shadow 180ms ease,
+          transform 220ms ease;
+      }
+
+      .faq-item:hover,
+      .faq-item:focus-within {
+        border-color: rgba(0, 127, 134, 0.55);
+        box-shadow: 0 20px 42px rgba(18, 49, 74, 0.16);
+        transform: translateY(-3px);
+      }
+
+      .faq-item summary {
+        cursor: pointer;
+        padding: 20px 22px;
+        color: var(--navy);
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      .faq-item summary:focus-visible {
+        outline: 3px solid var(--coral);
+        outline-offset: 3px;
+      }
+
+      .faq-answer {
+        padding: 0 22px 22px;
+        color: var(--muted);
+      }
+
+      .rate-list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .rate-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        border-bottom: 1px solid var(--line);
+        padding: 8px 0;
+      }
+
+      .rate-list li:last-child {
+        border-bottom: 0;
+      }
+
+      .rate-list strong {
+        color: var(--navy);
+      }
+
+      .event-row {
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 22px;
+        padding: 20px;
+      }
+
+      .event-row strong {
+        display: block;
+        color: var(--navy);
+      }
+
+      .event-date {
+        color: var(--teal-dark);
+        font-size: 14px;
+        font-weight: 950;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .event-row.featured-event {
+        grid-template-columns: 170px minmax(0, 1fr) 150px;
+        align-items: center;
+        border-color: rgba(233, 95, 69, 0.34);
+        background:
+          linear-gradient(135deg, rgba(255, 243, 238, 0.94), rgba(217, 241, 243, 0.72)),
+          var(--white);
+      }
+
+      .event-kicker {
+        display: inline-flex;
+        margin-bottom: 8px;
+        color: var(--coral);
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .speaker-thumb {
+        width: 150px;
+        height: 150px;
+        border: 4px solid var(--white);
+        border-radius: var(--radius);
+        object-fit: cover;
+        object-position: center top;
+        box-shadow: 0 14px 34px rgba(18, 49, 74, 0.2);
+      }
+
+      .speaker-actions {
+        margin-top: 12px;
+      }
+
+      .speaker-modal {
+        width: min(900px, calc(100% - 32px));
+        border: 0;
+        border-radius: var(--radius);
+        padding: 0;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .speaker-modal::backdrop {
+        background: rgba(11, 34, 53, 0.72);
+        backdrop-filter: blur(6px);
+      }
+
+      .speaker-modal-card {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.25fr);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: var(--radius);
+        background: var(--white);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+      }
+
+      .speaker-modal-media {
+        min-height: 100%;
+        background: var(--deep-navy);
+      }
+
+      .speaker-modal-media img {
+        width: 100%;
+        height: 100%;
+        min-height: 430px;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .speaker-modal-content {
+        padding: 34px;
+      }
+
+      .speaker-modal-content h2 {
+        margin-top: 0;
+      }
+
+      .speaker-modal-content p {
+        color: var(--muted);
+      }
+
+      .modal-close {
+        margin-top: 18px;
+      }
+
+      .image-lightbox {
+        width: min(1180px, calc(100% - 28px));
+        max-height: calc(100vh - 28px);
+        border: 0;
+        border-radius: var(--radius);
+        padding: 0;
+        background: transparent;
+        color: var(--white);
+      }
+
+      .image-lightbox::backdrop {
+        background: rgba(6, 24, 38, 0.86);
+        backdrop-filter: blur(6px);
+      }
+
+      .lightbox-inner {
+        display: grid;
+        gap: 12px;
+      }
+
+      .lightbox-frame {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        border-radius: var(--radius);
+        background: var(--deep-navy);
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+      }
+
+      .lightbox-frame img {
+        width: 100%;
+        max-height: calc(100vh - 132px);
+        object-fit: contain;
+      }
+
+      .lightbox-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        border-radius: var(--radius);
+        padding: 10px 12px;
+        background: rgba(6, 24, 38, 0.74);
+      }
+
+      .lightbox-bar p {
+        margin: 0;
+        font-weight: 850;
+      }
+
+      .lightbox-close {
+        min-height: 38px;
+        border-color: rgba(255, 255, 255, 0.42);
+        padding: 0 13px;
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--white);
+        box-shadow: none;
+      }
+
+      .lightbox-close:hover,
+      .lightbox-close:focus-visible {
+        background: var(--white);
+        color: var(--deep-navy);
+        transform: none;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 38px;
+        align-items: center;
+      }
+
+      .hotel-photo {
+        overflow: hidden;
+        border-radius: var(--radius);
+        background: #d7e4e3 center / cover no-repeat;
+        box-shadow: var(--shadow);
+        filter: saturate(0.82) contrast(1.02);
+      }
+
+      .hotel-photo:hover,
+      .hotel-photo:focus-within {
+        filter: saturate(1.16) contrast(1.08);
+        transform: translateY(-4px);
+        box-shadow: 0 24px 58px rgba(18, 49, 74, 0.22);
+      }
+
+      .hotel-photo::before {
+        content: "";
+        display: block;
+        aspect-ratio: 1.2;
+      }
+
+      .hotel-photo.hotel-beach {
+        background-image: url("assets/hotel-photos/hotel-beach.jpg");
+      }
+
+      .hotel-scroll {
+        display: grid;
+        gap: 18px;
+      }
+
+      .hotel-strip {
+        display: grid;
+        grid-auto-columns: minmax(320px, 46%);
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: auto;
+        padding: 18px 10px 28px;
+        scroll-snap-type: x mandatory;
+        scrollbar-color: var(--teal) #e4eceb;
+      }
+
+      .photo-grid figure,
+      .hotel-strip figure {
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        border-radius: var(--radius);
+        background: #d7e4e3;
+      }
+
+      .photo-grid figure::after,
+      .hotel-strip figure::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 0 solid rgba(255, 255, 255, 0);
+        pointer-events: none;
+        transition: border-color 220ms ease, border-width 220ms ease;
+      }
+
+      .photo-grid figure:hover,
+      .hotel-strip figure:hover,
+      .photo-grid figure:focus-within,
+      .hotel-strip figure:focus-within {
+        box-shadow: 0 18px 40px rgba(18, 49, 74, 0.2);
+        transform: translateY(-4px);
+      }
+
+      .hotel-strip figure:hover,
+      .hotel-strip figure:focus-within {
+        z-index: 2;
+        box-shadow: 0 28px 70px rgba(18, 49, 74, 0.28);
+        transform: translateY(-8px) scale(1.08);
+      }
+
+      .photo-grid figure:hover::after,
+      .hotel-strip figure:hover::after,
+      .photo-grid figure:focus-within::after,
+      .hotel-strip figure:focus-within::after {
+        border-width: 4px;
+        border-color: rgba(140, 198, 63, 0.94);
+      }
+
+      .hotel-strip figure {
+        box-shadow: 0 12px 30px rgba(18, 49, 74, 0.1);
+        scroll-snap-align: start;
+      }
+
+      .hotel-photo-button {
+        display: block;
+        width: 100%;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+        background: transparent;
+        color: inherit;
+        box-shadow: none;
+        cursor: zoom-in;
+      }
+
+      .hotel-photo-button:hover,
+      .hotel-photo-button:focus-visible {
+        background: transparent;
+        box-shadow: none;
+        transform: none;
+      }
+
+      .hotel-strip img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1.45;
+        object-fit: cover;
+        filter: saturate(0.55) contrast(0.94) blur(0.6px);
+        opacity: 0.82;
+        transform: scale(1.015);
+        transition: filter 260ms ease, opacity 260ms ease, transform 260ms ease;
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr 0.85fr;
+        grid-auto-rows: 220px;
+        grid-auto-flow: dense;
+        gap: 12px;
+      }
+
+      .photo-grid figure:first-child {
+        grid-row: span 2;
+      }
+
+      .photo-grid figure.wide-feature {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .photo-grid img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        filter: saturate(0.55) contrast(0.95) blur(0.6px);
+        opacity: 0.82;
+        transform: scale(1.015);
+        transition: filter 260ms ease, opacity 260ms ease, transform 260ms ease;
+      }
+
+      .photo-grid figure:hover img,
+      .hotel-strip figure:hover img,
+      .photo-grid figure:focus-within img,
+      .hotel-strip figure:focus-within img {
+        filter: saturate(1.14) contrast(1.06) blur(0);
+        opacity: 1;
+        transform: scale(1.045);
+      }
+
+      .hotel-strip figure:hover img,
+      .hotel-strip figure:focus-within img {
+        transform: scale(1.08);
+      }
+
+      @media (hover: none) {
+        .hotel-photo,
+        .photo-grid img,
+        .hotel-strip img {
+          filter: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-video video {
+          display: none;
+        }
+      }
+
+      .photo-grid img.focal-top {
+        object-position: center top;
+      }
+
+      .newsletter {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.14fr);
+        gap: 0;
+      }
+
+      .issue-cover {
+        padding: 34px;
+        background:
+          linear-gradient(135deg, rgba(0, 127, 134, 0.94), rgba(18, 49, 74, 0.96)),
+          url("assets/convention-photos/convention-evening.jpg") center / cover;
+        color: var(--white);
+      }
+
+      .issue-cover h3 {
+        color: var(--white);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 42px;
+        line-height: 1.02;
+      }
+
+      .issue-library {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+      }
+
+      .issue {
+        min-height: 146px;
+        padding: 22px;
+        background: var(--white);
+        text-decoration: none;
+      }
+
+      .issue:hover,
+      .issue:focus-visible {
+        background: #f3fbfb;
+      }
+
+      .issue span {
+        display: block;
+        color: var(--coral);
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .issue strong {
+        display: block;
+        margin-top: 8px;
+        color: var(--navy);
+        font-size: 20px;
+      }
+
+      .footer {
+        padding: 42px 0;
+        color: rgba(255, 255, 255, 0.78);
+        background: #101c28;
+      }
+
+      .footer-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+      }
+
+      .footer strong {
+        display: block;
+        color: var(--white);
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 14px 0;
+        }
+
+        .nav-links {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 3px;
+        }
+
+        .hero,
+        .hero-inner {
+          min-height: auto;
+        }
+
+        .hero-inner,
+        .grid-3,
+        .grid-2,
+        .field-grid,
+        .event-row,
+        .event-row.featured-event,
+        .split,
+        .newsletter,
+        .footer-inner,
+        .speaker-modal-card {
+          grid-template-columns: 1fr;
+        }
+
+        .speaker-thumb {
+          width: 100%;
+          height: auto;
+          max-height: 260px;
+          object-fit: cover;
+        }
+
+        .speaker-modal-media img {
+          min-height: 300px;
+          max-height: 360px;
+        }
+
+        .lightbox-bar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .hero-inner {
+          padding: 70px 0 92px;
+        }
+
+        .section {
+          padding: 62px 0;
+        }
+
+        .tabs {
+          grid-template-columns: 1fr;
+        }
+
+        .tab {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .photo-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-auto-rows: 160px;
+        }
+
+        .hotel-strip {
+          grid-auto-columns: minmax(280px, 82%);
+        }
+
+        .photo-grid figure:first-child {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .wrap {
+          width: min(1180px, calc(100% - 28px));
+        }
+
+        h1 {
+          font-size: 42px;
+        }
+
+        .actions,
+        .actions .btn,
+        .registration-actions,
+        .registration-actions .btn,
+        form .btn {
+          width: 100%;
+        }
+
+        .photo-grid,
+        .issue-library {
+          grid-template-columns: 1fr;
+        }
+
+        .hotel-strip {
+          grid-auto-columns: minmax(260px, 88%);
+        }
+
+        .photo-grid figure:first-child,
+        .photo-grid figure.wide-feature {
+          grid-column: auto;
+          grid-row: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="topbar">
+      <div class="wrap nav">
+        <a class="brand" href="#top" aria-label="FCI convention registration home">
+          <span class="mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </span>
+          <span>FCI Convention Registration</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#register">Register</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#hotel">Location</a>
+          <a href="#faq">FAQ</a>
+          <a href="#photos">Photos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="hero" id="top">
+        <div class="hero-video" aria-hidden="true">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/convention-photos/convention-networking.jpg?v=video-poster">
+            <source src="assets/videos/fci-convention-2026-hero-720p.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="wrap hero-inner">
+          <div>
+            <p class="eyebrow">Floor Coverings International</p>
+            <h1>2027 Convention Registration</h1>
+            <p class="hero-copy">
+              Join us Tuesday, February 2 through Friday, February 5, 2027 at Hard Rock Riviera Maya.
+              Agenda details, additional speakers, and convention information are coming soon.
+            </p>
+            <div class="actions">
+              <a class="btn" href="#register">Start Registration</a>
+              <a class="btn secondary" href="mailto:fciconvention@floorcoveringsinternational.com">Contact the Team</a>
+            </div>
+          </div>
+          <aside class="fact-panel" aria-label="Convention details">
+            <dl>
+              <div>
+                <dt>Dates</dt>
+                <dd>Tuesday, February 2 - Friday, February 5, 2027</dd>
+              </div>
+              <div>
+                <dt>Location</dt>
+                <dd>Hard Rock Riviera Maya</dd>
+              </div>
+              <div>
+                <dt>Welcome Party</dt>
+                <dd>Tuesday evening</dd>
+              </div>
+              <div>
+                <dt>Closing Bash</dt>
+                <dd>Friday evening</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+        <button class="video-toggle" type="button" aria-pressed="false" aria-label="Pause background video preview">
+          Pause motion
+        </button>
+      </section>
+
+      <section class="section white" id="register">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Registration</p>
+            <h2>Choose the form that matches your role.</h2>
+            <p class="lead">
+              There are separate registration paths for Franchise Owners, Design Associates/Employees,
+              and Vendors/Suppliers.
+            </p>
+          </div>
+
+          <div class="form-shell">
+            <p class="sr-only" id="registration-tab-help">
+              Use the registration tabs to choose a role. Use arrow keys to move between tabs.
+            </p>
+            <div class="tabs" role="tablist" aria-label="Registration forms" aria-describedby="registration-tab-help">
+              <button class="tab" id="tab-owner" role="tab" aria-selected="true" aria-controls="panel-owner" type="button">
+                Franchise Owner
+              </button>
+              <button class="tab" id="tab-employee" role="tab" aria-selected="false" aria-controls="panel-employee" type="button">
+                Design Associate/Employee
+              </button>
+              <button class="tab" id="tab-vendor" role="tab" aria-selected="false" aria-controls="panel-vendor" type="button">
+                Vendor/Supplier
+              </button>
+            </div>
+
+            <section class="form-panel active" id="panel-owner" role="tabpanel" aria-labelledby="tab-owner">
+              <div class="registration-card">
+                <span class="label">Franchise Owner</span>
+                <h3>Owner registration</h3>
+                <p>Use this registration path for franchise owners. A team member is anyone attending sessions.</p>
+                <div class="registration-actions">
+                  <a class="btn" href="https://form.jotform.com/262185030603144" target="_blank" rel="noopener noreferrer">Open Owner Registration<span class="sr-only"> opens in a new tab</span></a>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-panel" id="panel-employee" role="tabpanel" aria-labelledby="tab-employee" hidden>
+              <div class="registration-card">
+                <span class="label">Design Associate/Employee</span>
+                <h3>Employee registration</h3>
+                <p>Use this registration path for design associates and employees attending convention sessions.</p>
+                <div class="registration-actions">
+                  <a class="btn" href="https://form.jotform.com/262185769189172" target="_blank" rel="noopener noreferrer">Open Employee Registration<span class="sr-only"> opens in a new tab</span></a>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-panel" id="panel-vendor" role="tabpanel" aria-labelledby="tab-vendor" hidden>
+              <div class="registration-card">
+                <span class="label">Vendor/Supplier</span>
+                <h3>Partner and supplier registration</h3>
+                <p>Use this registration path for partners, suppliers, and vendor attendees.</p>
+                <div class="registration-actions">
+                  <a class="btn" href="https://form.jotform.com/262185864037160" target="_blank" rel="noopener noreferrer">Open Partner/Supplier Registration<span class="sr-only"> opens in a new tab</span></a>
+                  <a class="btn text" href="https://form.jotform.com/260975696840069" target="_blank" rel="noopener noreferrer">Diamond Tier Vendor Signup<span class="sr-only"> opens in a new tab</span></a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pricing">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Pricing</p>
+            <h2>Clear contribution and participation pricing.</h2>
+            <p class="lead">Early Bird applies when a business is registered for convention and hotel before October 16.</p>
+          </div>
+          <div class="grid-3" role="list" aria-label="Convention pricing options">
+            <article class="price-card" role="listitem">
+              <span class="label">Per Business</span>
+              <h3>Convention Contribution</h3>
+              <p class="price">$1,999</p>
+              <p>Convention contribution per business.</p>
+            </article>
+            <article class="price-card" role="listitem">
+              <span class="label">Early Bird</span>
+              <h3>Participating Business</h3>
+              <p class="price">$749</p>
+              <p>Plus $75 per team member when convention and hotel registration are completed before October 16.</p>
+            </article>
+            <article class="price-card" role="listitem">
+              <span class="label">Standard</span>
+              <h3>Participating Business</h3>
+              <p class="price">$1,149</p>
+              <p>Plus $199 per team member.</p>
+            </article>
+          </div>
+          <p class="notice" style="margin-top: 22px;">A team member is anyone attending sessions.</p>
+        </div>
+      </section>
+
+      <section class="section white" id="schedule">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Schedule</p>
+            <h2>Agenda at a glance.</h2>
+            <p class="lead">Additional session times, rooms, and agenda details are coming soon.</p>
+          </div>
+          <div class="event-list" role="list" aria-label="Convention schedule overview">
+            <article class="event-row" role="listitem">
+              <div class="event-date">Tue, Feb 2</div>
+              <div><strong>Welcome Party</strong><p>Tuesday evening. Additional details coming soon.</p></div>
+            </article>
+            <article class="event-row featured-event" role="listitem">
+              <div class="event-date">Wed, Feb 3</div>
+              <div>
+                <span class="event-kicker">Featured Keynote</span>
+                <strong>Daymond John</strong>
+                <p>Daymond John's 5 Shark Points: Fundamentals for Success in Business and Life.</p>
+                <div class="speaker-actions">
+                  <button class="btn text" type="button" data-speaker-modal="daymond">View speaker bio</button>
+                </div>
+              </div>
+              <img class="speaker-thumb" src="assets/speakers/daymond-john.jpg" alt="Daymond John" />
+            </article>
+            <article class="event-row" role="listitem">
+              <div class="event-date">Thu, Feb 4</div>
+              <div><strong>Convention Programming</strong><p>Agenda TBD. Additional speaker details coming soon.</p></div>
+            </article>
+            <article class="event-row" role="listitem">
+              <div class="event-date">Fri, Feb 5</div>
+              <div><strong>Closing Bash</strong><p>Friday evening. Additional details coming soon.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section navy" id="hotel">
+        <div class="wrap split">
+          <div>
+            <p class="eyebrow">Location</p>
+            <h2>Hard Rock Riviera Maya</h2>
+            <p class="lead">
+              Hotel registration is completed through the Hard Rock Riviera Maya website. Use the official hotel link
+              for booking and property information.
+            </p>
+            <div class="actions">
+              <a class="btn" href="https://www.hrrivieramaya.com/" target="_blank" rel="noopener noreferrer">Visit Hotel Website<span class="sr-only"> opens in a new tab</span></a>
+            </div>
+          </div>
+          <div class="hotel-photo hotel-beach" role="img" aria-label="Hard Rock Riviera Maya beach"></div>
+        </div>
+      </section>
+
+      <section class="section white" id="hotel-photos">
+        <div class="wrap hotel-scroll">
+          <div class="section-head">
+            <p class="eyebrow">Hotel Photos</p>
+            <h2>Take a look around the resort.</h2>
+            <p class="lead">Browse the beach, pool, and resort grounds at Hard Rock Riviera Maya.</p>
+          </div>
+          <div class="hotel-strip" role="list" aria-label="Hard Rock Riviera Maya hotel photo gallery">
+            <figure role="listitem">
+              <button class="hotel-photo-button" type="button" data-lightbox-src="assets/hotel-photos/hotel-hero-pool-aerial.jpg" data-lightbox-title="Aerial view of the Hard Rock Riviera Maya pool and beach">
+                <img src="assets/hotel-photos/hotel-hero-pool-aerial.jpg" alt="Aerial view of the Hard Rock Riviera Maya pool and beach" />
+              </button>
+            </figure>
+            <figure role="listitem">
+              <button class="hotel-photo-button" type="button" data-lightbox-src="assets/hotel-photos/hotel-beach.jpg" data-lightbox-title="Hard Rock Riviera Maya beach with turquoise water">
+                <img src="assets/hotel-photos/hotel-beach.jpg" alt="Hard Rock Riviera Maya beach with turquoise water" />
+              </button>
+            </figure>
+            <figure role="listitem">
+              <button class="hotel-photo-button" type="button" data-lightbox-src="assets/hotel-photos/hotel-pool.jpg" data-lightbox-title="Hard Rock Riviera Maya pool surrounded by resort buildings">
+                <img src="assets/hotel-photos/hotel-pool.jpg" alt="Hard Rock Riviera Maya pool surrounded by resort buildings" />
+              </button>
+            </figure>
+            <figure role="listitem">
+              <button class="hotel-photo-button" type="button" data-lightbox-src="assets/hotel-photos/hotel-walkway.jpg" data-lightbox-title="Walkway along the water at Hard Rock Riviera Maya">
+                <img src="assets/hotel-photos/hotel-walkway.jpg" alt="Walkway along the water at Hard Rock Riviera Maya" />
+              </button>
+            </figure>
+            <figure role="listitem">
+              <button class="hotel-photo-button" type="button" data-lightbox-src="assets/hotel-photos/hotel-sunrise-pool.jpg" data-lightbox-title="Pool at Hard Rock Riviera Maya during sunrise">
+                <img src="assets/hotel-photos/hotel-sunrise-pool.jpg" alt="Pool at Hard Rock Riviera Maya during sunrise" />
+              </button>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2>Helpful details before you register.</h2>
+            <p class="lead">Some links are still coming soon and will be added as they are confirmed.</p>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary>I own multiple territories/franchises. Will I be charged a convention fee for each location?</summary>
+              <div class="faq-answer">
+                <p>No. The convention fee will apply once in this circumstance. The registration fee includes 1 franchisee. Each additional attendee will have a separate fee.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What is included in the registration fee?</summary>
+              <div class="faq-answer">
+                <p>The registration fee includes what you will need while onsite during the convention dates, including food, drinks, attendance at convention-related events, the Welcome Party, vendor showcase, Closing Bash, swag gifts, and related convention programming.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What are the hotel costs?</summary>
+              <div class="faq-answer">
+                <ul class="rate-list" aria-label="Hotel room rates">
+                  <li><span>Single occupancy</span><strong>$479</strong></li>
+                  <li><span>Double occupancy</span><strong>$549</strong></li>
+                  <li><span>Additional person in the room, maximum 4 per room</span><strong>$76</strong></li>
+                  <li><span>Children under 4 in the same room with parents</span><strong>Free</strong></li>
+                  <li><span>Children ages 13-17</span><strong>$76</strong></li>
+                </ul>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How can I make a hotel reservation?</summary>
+              <div class="faq-answer">
+                <p>Hotel registration is completed through the <a href="https://www.hrrivieramaya.com/" target="_blank" rel="noopener noreferrer">Hard Rock Riviera Maya website<span class="sr-only"> opens in a new tab</span></a>.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How does the hotel charge work?</summary>
+              <div class="faq-answer">
+                <p>Three nights will be charged by the hotel. Hotel registration is completed through the <a href="https://www.hrrivieramaya.com/" target="_blank" rel="noopener noreferrer">Hard Rock Riviera Maya website<span class="sr-only"> opens in a new tab</span></a>.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How can I change or update my existing hotel reservation?</summary>
+              <div class="faq-answer">
+                <p>Reservation updates, including arrival or departure date changes, should be made through the <a href="https://www.hrrivieramaya.com/" target="_blank" rel="noopener noreferrer">Hard Rock Riviera Maya website<span class="sr-only"> opens in a new tab</span></a> and are based on hotel availability. Transportation update instructions are coming soon.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What is the hotel cancellation policy?</summary>
+              <div class="faq-answer">
+                <p>Cancellations must be made at least 30 days in advance. If a hotel reservation is cancelled within 30 days, the entire hotel amount will be forfeited.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What if someone cancels registration or does not attend?</summary>
+              <div class="faq-answer">
+                <p>If someone cancels and does not attend, the full convention fee will be charged.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How far is it from the airport to the hotel?</summary>
+              <div class="faq-answer">
+                <p>Airport transportation details and estimated travel time to Hard Rock Riviera Maya are coming soon.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What are the entry requirements?</summary>
+              <div class="faq-answer">
+                <p>All guests should have a valid government-issued passport for airline check-in, airport security, and entry into Mexico. Additional travel requirement details are coming soon. Guests are responsible for obtaining any required travel documents, visas, or passport renewals.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What information will be listed on my badge?</summary>
+              <div class="faq-answer">
+                <p>Your badge will display your first and last name, branch name, and participant type. Badge information will reflect what you enter on your convention registration form, so please check spelling carefully.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What time zone is Hard Rock Riviera Maya in?</summary>
+              <div class="faq-answer">
+                <p>Hard Rock Riviera Maya is in the Cancun/Riviera Maya time zone: Eastern Standard Time, UTC-5, year-round. Cancun does not observe daylight saving time.</p>
+                <p>During convention dates, Cancun is the same time as Eastern Time, 1 hour ahead of Central Time, 2 hours ahead of Mountain Time, and 3 hours ahead of Pacific Time.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How can I reach the FCI Convention Team?</summary>
+              <div class="faq-answer">
+                <p>Email <a href="mailto:fciconvention@floorcoveringsinternational.com">fciconvention@floorcoveringsinternational.com</a> for convention registration questions.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white" id="photos">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Photos</p>
+            <h2>2026 Convention Photos</h2>
+          </div>
+          <div class="photo-grid" role="list" aria-label="2026 convention photo gallery">
+            <figure role="listitem"><img src="assets/convention-photos/convention-main-session.jpg?v=approved-2026b" alt="Speaker presenting on stage at the 2026 convention" /></figure>
+            <figure role="listitem"><img src="assets/convention-photos/convention-networking.jpg?v=approved-2026b" alt="Convention attendees smiling together by the pool" /></figure>
+            <figure role="listitem"><img src="assets/convention-photos/convention-welcome.jpg?v=approved-2026b" alt="Convention attendees at a balcony reception" /></figure>
+            <figure class="wide-feature" role="listitem"><img src="assets/convention-photos/convention-awards.jpg?v=approved-2026b" alt="Large group of 2026 convention award recipients on stage" /></figure>
+            <figure role="listitem"><img src="assets/convention-photos/convention-candid.jpg?v=approved-2026b" alt="Convention attendees gathered at a reception table" /></figure>
+            <figure role="listitem"><img src="assets/convention-photos/convention-evening.jpg?v=approved-2026b" alt="Convention attendees laughing together at an evening reception" /></figure>
+            <figure role="listitem"><img src="assets/convention-photos/convention-step-repeat.jpg?v=approved-2026b" alt="Award recipients posing together on stage" /></figure>
+            <figure role="listitem"><img class="focal-top" src="assets/convention-photos/convention-speaker.jpg?v=approved-2026b" alt="Three people posing with an award on stage" /></figure>
+            <figure role="listitem"><img src="assets/convention-photos/convention-awards-social.jpg?v=approved-2026b" alt="Convention attendees socializing at the awards reception" /></figure>
+            <figure role="listitem"><img src="assets/convention-photos/convention-reception-duo.jpg?v=approved-2026b" alt="Two convention attendees smiling at an evening reception" /></figure>
+            <figure role="listitem"><img src="assets/convention-photos/convention-blue-reception.jpg?v=approved-2026b" alt="Two convention attendees smiling at a reception" /></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white" id="contact">
+        <div class="wrap grid-2">
+          <div>
+            <p class="eyebrow">Questions</p>
+            <h2>Need help with registration?</h2>
+            <p class="lead">The convention team can help with registration questions, hotel timing, and TBD details as they are finalized.</p>
+          </div>
+          <article class="card">
+            <span class="label">Contact</span>
+            <h3>Convention Team</h3>
+            <p><a href="mailto:fciconvention@floorcoveringsinternational.com">fciconvention@floorcoveringsinternational.com</a></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="speaker-modal" id="speaker-daymond-modal" aria-labelledby="speaker-daymond-title">
+      <div class="speaker-modal-card">
+        <div class="speaker-modal-media">
+          <img src="assets/speakers/daymond-john.jpg" alt="Daymond John" />
+        </div>
+        <div class="speaker-modal-content">
+          <p class="eyebrow">Wednesday, February 3 Featured Keynote</p>
+          <h2 id="speaker-daymond-title">Daymond John</h2>
+          <p class="lead">
+            Entrepreneur, CEO and Founder of FUBU, branding expert, bestselling author, and Shark Tank investor.
+          </p>
+          <p>
+            Daymond John built FUBU into a global lifestyle brand and has become known for helping leaders think
+            differently about entrepreneurship, branding, marketing, and growth.
+          </p>
+          <p>
+            His keynote, <strong>Daymond John's 5 Shark Points: Fundamentals for Success in Business and Life</strong>,
+            focuses on mindset, goal-setting, and practical principles attendees can apply to business and personal growth.
+          </p>
+          <button class="btn modal-close" type="button" data-modal-close>Close bio</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="image-lightbox" id="hotel-photo-lightbox" aria-labelledby="lightbox-title">
+      <div class="lightbox-inner">
+        <div class="lightbox-frame">
+          <img id="lightbox-image" src="assets/hotel-photos/hotel-hero-pool-aerial.jpg" alt="Aerial view of the Hard Rock Riviera Maya pool and beach" />
+        </div>
+        <div class="lightbox-bar">
+          <p id="lightbox-title">Hard Rock Riviera Maya resort photo</p>
+          <button class="btn lightbox-close" type="button" data-lightbox-close>Close photo</button>
+        </div>
+      </div>
+    </dialog>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <div>
+          <strong>2027 FCI Convention Registration</strong>
+          <span>Details marked TBD or Coming Soon will be updated as they are confirmed.</span>
+        </div>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script>
+      const hero = document.querySelector(".hero");
+      const heroVideo = document.querySelector(".hero-video video");
+      const videoToggle = document.querySelector(".video-toggle");
+      const tabs = Array.from(document.querySelectorAll("[role='tab']"));
+      const panels = Array.from(document.querySelectorAll("[role='tabpanel']"));
+
+      if (videoToggle && hero) {
+        const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const setVideoPaused = (paused) => {
+          hero.classList.toggle("video-paused", paused);
+          if (heroVideo) {
+            if (paused) {
+              heroVideo.pause();
+            } else {
+              heroVideo.play().catch(() => {});
+            }
+          }
+          videoToggle.setAttribute("aria-pressed", String(paused));
+          videoToggle.setAttribute("aria-label", paused ? "Play background video preview" : "Pause background video preview");
+          videoToggle.textContent = paused ? "Play motion" : "Pause motion";
+        };
+
+        setVideoPaused(motionQuery.matches);
+        videoToggle.addEventListener("click", () => setVideoPaused(!hero.classList.contains("video-paused")));
+        motionQuery.addEventListener?.("change", (event) => setVideoPaused(event.matches));
+      }
+
+      const activateTab = (tab) => {
+        tabs.forEach((item) => {
+          const isActive = item === tab;
+          item.setAttribute("aria-selected", String(isActive));
+          item.setAttribute("tabindex", isActive ? "0" : "-1");
+        });
+        panels.forEach((panel) => {
+          const isActive = panel.id === tab.getAttribute("aria-controls");
+          panel.classList.toggle("active", isActive);
+          panel.hidden = !isActive;
+        });
+      };
+
+      tabs.forEach((tab, index) => {
+        tab.setAttribute("tabindex", tab.getAttribute("aria-selected") === "true" ? "0" : "-1");
+        tab.addEventListener("click", () => activateTab(tab));
+        tab.addEventListener("keydown", (event) => {
+          const keyActions = {
+            ArrowRight: (index + 1) % tabs.length,
+            ArrowDown: (index + 1) % tabs.length,
+            ArrowLeft: (index - 1 + tabs.length) % tabs.length,
+            ArrowUp: (index - 1 + tabs.length) % tabs.length,
+            Home: 0,
+            End: tabs.length - 1,
+          };
+
+          if (!(event.key in keyActions)) return;
+          event.preventDefault();
+          const nextTab = tabs[keyActions[event.key]];
+          nextTab.focus();
+          activateTab(nextTab);
+        });
+      });
+
+      const speakerModal = document.querySelector("#speaker-daymond-modal");
+      const speakerModalOpeners = Array.from(document.querySelectorAll("[data-speaker-modal='daymond']"));
+      const speakerModalClose = speakerModal?.querySelector("[data-modal-close]");
+      const hotelLightbox = document.querySelector("#hotel-photo-lightbox");
+      const hotelLightboxImage = document.querySelector("#lightbox-image");
+      const hotelLightboxTitle = document.querySelector("#lightbox-title");
+      const hotelPhotoButtons = Array.from(document.querySelectorAll("[data-lightbox-src]"));
+      const hotelLightboxClose = hotelLightbox?.querySelector("[data-lightbox-close]");
+
+      speakerModalOpeners.forEach((opener) => {
+        opener.addEventListener("click", () => {
+          if (speakerModal?.showModal) {
+            speakerModal.showModal();
+          }
+        });
+      });
+
+      speakerModalClose?.addEventListener("click", () => speakerModal.close());
+      speakerModal?.addEventListener("click", (event) => {
+        if (event.target === speakerModal) {
+          speakerModal.close();
+        }
+      });
+
+      hotelPhotoButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const src = button.getAttribute("data-lightbox-src");
+          const title = button.getAttribute("data-lightbox-title") || "Hard Rock Riviera Maya resort photo";
+          if (!src || !hotelLightbox || !hotelLightboxImage || !hotelLightboxTitle) return;
+          hotelLightboxImage.src = src;
+          hotelLightboxImage.alt = title;
+          hotelLightboxTitle.textContent = title;
+          if (hotelLightbox.showModal) {
+            hotelLightbox.showModal();
+          }
+        });
+      });
+
+      hotelLightboxClose?.addEventListener("click", () => hotelLightbox.close());
+      hotelLightbox?.addEventListener("click", (event) => {
+        if (event.target === hotelLightbox) {
+          hotelLightbox.close();
+        }
+      });
+
+    </script>
+  </body>
+</html>
