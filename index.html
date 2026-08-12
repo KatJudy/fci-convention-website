@@ -253,9 +253,12 @@
         right: max(20px, calc((100% - 1180px) / 2));
         bottom: 34px;
         z-index: 2;
+        width: 44px;
+        height: 44px;
         min-height: 38px;
         border-color: rgba(255, 255, 255, 0.44);
-        padding: 0 12px;
+        border-radius: 999px;
+        padding: 0;
         background: rgba(6, 24, 38, 0.7);
         color: var(--white);
         box-shadow: none;
@@ -266,6 +269,35 @@
         border-color: var(--lime);
         background: var(--deep-navy);
         transform: none;
+      }
+
+      .motion-icon {
+        position: relative;
+        display: inline-flex;
+        width: 16px;
+        height: 18px;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+      }
+
+      .motion-icon span {
+        width: 5px;
+        height: 18px;
+        border-radius: 2px;
+        background: currentColor;
+      }
+
+      .hero.video-paused .motion-icon {
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 16px solid currentColor;
+      }
+
+      .hero.video-paused .motion-icon span {
+        display: none;
       }
 
       .eyebrow {
@@ -656,6 +688,29 @@
         width: 18px;
         min-height: 18px;
         margin-top: 3px;
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 16px;
+      }
+
+      .contact-form textarea {
+        min-height: 120px;
+      }
+
+      .contact-section {
+        padding: 58px 0;
+      }
+
+      .contact-layout {
+        display: grid;
+        gap: 18px;
+        max-width: 860px;
+      }
+
+      .contact-layout .section-head {
+        margin-bottom: 0;
       }
 
       .event-list {
@@ -1336,7 +1391,8 @@
           </aside>
         </div>
         <button class="video-toggle" type="button" aria-pressed="false" aria-label="Pause background video preview">
-          Pause motion
+          <span class="motion-icon" aria-hidden="true"><span></span><span></span></span>
+          <span class="sr-only">Pause background video preview</span>
         </button>
       </section>
 
@@ -1345,10 +1401,6 @@
           <div class="section-head">
             <p class="eyebrow">Registration</p>
             <h2>Choose the form that matches your role.</h2>
-            <p class="lead">
-              There are separate registration paths for Franchise Owners, Design Associates/Employees,
-              and Vendors/Suppliers.
-            </p>
           </div>
 
           <div class="form-shell">
@@ -1408,8 +1460,7 @@
         <div class="wrap">
           <div class="section-head">
             <p class="eyebrow">Pricing</p>
-            <h2>Clear contribution and participation pricing.</h2>
-            <p class="lead">Early Bird applies when a business is registered for convention and hotel before October 16.</p>
+            <h2>Convention Pricing</h2>
           </div>
           <div class="grid-3" role="list" aria-label="Convention pricing options">
             <article class="price-card" role="listitem">
@@ -1440,7 +1491,6 @@
           <div class="section-head">
             <p class="eyebrow">Schedule</p>
             <h2>Agenda at a glance.</h2>
-            <p class="lead">Additional session times, rooms, and agenda details are coming soon.</p>
           </div>
           <div class="event-list" role="list" aria-label="Convention schedule overview">
             <article class="event-row" role="listitem">
@@ -1644,17 +1694,41 @@
         </div>
       </section>
 
-      <section class="section white" id="contact">
-        <div class="wrap grid-2">
-          <div>
+      <section class="section white contact-section" id="contact">
+        <div class="wrap contact-layout">
+          <div class="section-head">
             <p class="eyebrow">Questions</p>
-            <h2>Need help with registration?</h2>
-            <p class="lead">The convention team can help with registration questions, hotel timing, and TBD details as they are finalized.</p>
+            <h2>Need help?</h2>
           </div>
-          <article class="card">
+          <article class="card" aria-labelledby="contact-form-title">
             <span class="label">Contact</span>
-            <h3>Convention Team</h3>
-            <p><a href="mailto:fciconvention@floorcoveringsinternational.com">fciconvention@floorcoveringsinternational.com</a></p>
+            <h3 id="contact-form-title">Convention Team</h3>
+            <form class="contact-form" id="contact-form">
+              <div class="field-grid">
+                <label>
+                  Name
+                  <input type="text" name="name" autocomplete="name" required />
+                </label>
+                <label>
+                  Email
+                  <input type="email" name="email" autocomplete="email" required />
+                </label>
+              </div>
+              <label>
+                Topic
+                <select name="topic">
+                  <option>Registration question</option>
+                  <option>Hotel question</option>
+                  <option>Vendor/Supplier question</option>
+                  <option>Other convention question</option>
+                </select>
+              </label>
+              <label>
+                Message
+                <textarea name="message" required></textarea>
+              </label>
+              <button class="btn" type="submit">Send Message</button>
+            </form>
           </article>
         </div>
       </section>
@@ -1700,7 +1774,6 @@
       <div class="wrap footer-inner">
         <div>
           <strong>2027 FCI Convention Registration</strong>
-          <span>Details marked TBD or Coming Soon will be updated as they are confirmed.</span>
         </div>
         <a href="#top">Back to top</a>
       </div>
@@ -1726,7 +1799,10 @@
           }
           videoToggle.setAttribute("aria-pressed", String(paused));
           videoToggle.setAttribute("aria-label", paused ? "Play background video preview" : "Pause background video preview");
-          videoToggle.textContent = paused ? "Play motion" : "Pause motion";
+          const label = videoToggle.querySelector(".sr-only");
+          if (label) {
+            label.textContent = paused ? "Play background video preview" : "Pause background video preview";
+          }
         };
 
         setVideoPaused(motionQuery.matches);
@@ -1776,6 +1852,7 @@
       const hotelLightboxTitle = document.querySelector("#lightbox-title");
       const hotelPhotoButtons = Array.from(document.querySelectorAll("[data-lightbox-src]"));
       const hotelLightboxClose = hotelLightbox?.querySelector("[data-lightbox-close]");
+      const contactForm = document.querySelector("#contact-form");
 
       speakerModalOpeners.forEach((opener) => {
         opener.addEventListener("click", () => {
@@ -1811,6 +1888,25 @@
         if (event.target === hotelLightbox) {
           hotelLightbox.close();
         }
+      });
+
+      contactForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(contactForm);
+        const name = String(formData.get("name") || "").trim();
+        const email = String(formData.get("email") || "").trim();
+        const topic = String(formData.get("topic") || "Convention question").trim();
+        const message = String(formData.get("message") || "").trim();
+        const subject = `FCI Convention: ${topic}`;
+        const body = [
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Topic: ${topic}`,
+          "",
+          message,
+        ].join("\n");
+
+        window.location.href = `mailto:fciconvention@floorcoveringsinternational.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       });
 
     </script>
