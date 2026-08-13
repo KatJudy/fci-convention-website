@@ -556,6 +556,24 @@
         font-weight: 900;
       }
 
+      .price-card.featured-price {
+        border-color: rgba(140, 198, 63, 0.9);
+        background:
+          linear-gradient(135deg, rgba(230, 245, 215, 0.95), rgba(217, 241, 243, 0.82)),
+          var(--white);
+        box-shadow: 0 18px 48px rgba(0, 127, 134, 0.18);
+      }
+
+      .price-card.featured-price .label {
+        border-color: rgba(18, 49, 74, 0.2);
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      .price-card.featured-price .price {
+        color: var(--teal-dark);
+      }
+
       .fine,
       .card p,
       .price-card p {
@@ -1415,7 +1433,7 @@
                 Design Associate/Employee
               </button>
               <button class="tab" id="tab-vendor" role="tab" aria-selected="false" aria-controls="panel-vendor" type="button">
-                Vendor/Supplier
+                Vendor
               </button>
             </div>
 
@@ -1443,11 +1461,11 @@
 
             <section class="form-panel" id="panel-vendor" role="tabpanel" aria-labelledby="tab-vendor" hidden>
               <div class="registration-card">
-                <span class="label">Vendor/Supplier</span>
-                <h3>Partner and supplier registration</h3>
-                <p>Use this registration path for partners, suppliers, and vendor attendees.</p>
+                <span class="label">Vendor</span>
+                <h3>Vendor registration</h3>
+                <p>Use this registration path for vendor companies, suppliers, and vendor attendees.</p>
                 <div class="registration-actions">
-                  <a class="btn" href="https://form.jotform.com/262185864037160" target="_blank" rel="noopener noreferrer">Open Partner/Supplier Registration<span class="sr-only"> opens in a new tab</span></a>
+                  <a class="btn" href="https://form.jotform.com/262185864037160" target="_blank" rel="noopener noreferrer">Open Vendor Registration<span class="sr-only"> opens in a new tab</span></a>
                   <a class="btn text" href="https://form.jotform.com/260975696840069" target="_blank" rel="noopener noreferrer">Diamond Tier Vendor Signup<span class="sr-only"> opens in a new tab</span></a>
                 </div>
               </div>
@@ -1463,23 +1481,23 @@
             <h2>Convention Pricing</h2>
           </div>
           <div class="grid-3" role="list" aria-label="Convention pricing options">
-            <article class="price-card" role="listitem">
-              <span class="label">Per Business</span>
-              <h3>Convention Contribution</h3>
-              <p class="price">$1,999</p>
-              <p>Convention contribution per business.</p>
-            </article>
-            <article class="price-card" role="listitem">
+            <article class="price-card featured-price" role="listitem">
               <span class="label">Early Bird</span>
               <h3>Participating Business</h3>
               <p class="price">$749</p>
-              <p>Plus $75 per team member when convention and hotel registration are completed before October 16.</p>
+              <p>Plus $75 per team member when convention and hotel registration are completed before <strong>October 16</strong>.</p>
             </article>
             <article class="price-card" role="listitem">
               <span class="label">Standard</span>
               <h3>Participating Business</h3>
               <p class="price">$1,149</p>
-              <p>Plus $199 per team member.</p>
+              <p>Plus $199 per team member when convention and hotel registration are completed after <strong>October 16</strong>.</p>
+            </article>
+            <article class="price-card" role="listitem">
+              <span class="label">No Attendee</span>
+              <h3>Convention Contribution</h3>
+              <p class="price">$1,999</p>
+              <p>Branches that do not send at least one person from the business will receive this charge and be out of compliance per the franchise agreement.</p>
             </article>
           </div>
           <p class="notice" style="margin-top: 22px;">A team member is anyone attending sessions.</p>
@@ -1617,7 +1635,7 @@
             <details class="faq-item">
               <summary>How does the hotel charge work?</summary>
               <div class="faq-answer">
-                <p>Three nights will be charged by the hotel. Hotel registration is completed through the <a href="https://hotel.reservations.hardrock.com/?adult=2&amp;arrive=2027-01-31&amp;chain=13924&amp;child=0&amp;config=GPS20&amp;currency=USD&amp;depart=2027-02-07&amp;dest=AIC&amp;group=270122FCIA&amp;hotel=59660&amp;level=hotel&amp;locale=en-US&amp;productcurrency=USD&amp;rooms=1&amp;theme=Groups20" target="_blank" rel="noopener noreferrer">Hard Rock Riviera Maya group reservation link<span class="sr-only"> opens in a new tab</span></a>.</p>
+                <p>The hotel will charge three nights when the reservation is made. The remaining balance will be paid on arrival. Hotel registration is completed through the <a href="https://hotel.reservations.hardrock.com/?adult=2&amp;arrive=2027-01-31&amp;chain=13924&amp;child=0&amp;config=GPS20&amp;currency=USD&amp;depart=2027-02-07&amp;dest=AIC&amp;group=270122FCIA&amp;hotel=59660&amp;level=hotel&amp;locale=en-US&amp;productcurrency=USD&amp;rooms=1&amp;theme=Groups20" target="_blank" rel="noopener noreferrer">Hard Rock Riviera Maya group reservation link<span class="sr-only"> opens in a new tab</span></a>.</p>
               </div>
             </details>
             <details class="faq-item">
@@ -1629,13 +1647,13 @@
             <details class="faq-item">
               <summary>What is the hotel cancellation policy?</summary>
               <div class="faq-answer">
-                <p>Cancellations must be made at least 30 days in advance. If a hotel reservation is cancelled within 30 days, the entire hotel amount will be forfeited.</p>
+                <p>Cancellations must be made at least 30 days before arrival.</p>
               </div>
             </details>
             <details class="faq-item">
-              <summary>What if someone cancels registration or does not attend?</summary>
+              <summary>What if the business cancels registration or does not attend?</summary>
               <div class="faq-answer">
-                <p>If someone cancels and does not attend, the full convention fee will be charged.</p>
+                <p>If the business cancels and does not attend, the full convention fee will be charged.</p>
               </div>
             </details>
             <details class="faq-item">
@@ -1720,7 +1738,7 @@
                 <select name="topic">
                   <option>Registration question</option>
                   <option>Hotel question</option>
-                  <option>Vendor/Supplier question</option>
+                  <option>Vendor question</option>
                   <option>Other convention question</option>
                 </select>
               </label>
