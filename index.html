@@ -18,6 +18,8 @@
         --teal-dark: #00636a;
         --lime: #8cc63f;
         --lime-soft: #e6f5d7;
+        --brand-taupe: #9a9288;
+        --brand-ink: #2d2c2b;
         --coral: #e95f45;
         --sky: #d9f1f3;
         --paper: #fbfaf6;
@@ -155,7 +157,6 @@
         align-items: center;
         gap: 12px;
         color: var(--white);
-        font-weight: 900;
         text-decoration: none;
       }
 
@@ -169,7 +170,29 @@
       }
 
       .mark span {
-        background: var(--lime);
+        background: var(--brand-taupe);
+      }
+
+      .brand-wordmark {
+        display: grid;
+        gap: 1px;
+        line-height: 1;
+      }
+
+      .brand-name {
+        color: var(--white);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .brand-subtitle {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
       }
 
       .nav-links {
@@ -1232,6 +1255,41 @@
         color: var(--white);
       }
 
+      .floating-top {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 9;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        border-color: rgba(255, 255, 255, 0.36);
+        border-radius: 999px;
+        padding: 0 14px;
+        background: rgba(11, 34, 53, 0.92);
+        color: var(--white);
+        line-height: 1;
+        text-align: center;
+        box-shadow: 0 18px 42px rgba(11, 34, 53, 0.28);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(12px);
+      }
+
+      .floating-top.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .floating-top:hover,
+      .floating-top:focus-visible {
+        border-color: var(--lime);
+        background: var(--white);
+        color: var(--deep-navy);
+      }
+
       @media (max-width: 900px) {
         .nav {
           align-items: flex-start;
@@ -1329,6 +1387,14 @@
           width: 100%;
         }
 
+        .floating-top {
+          right: 14px;
+          bottom: 14px;
+          min-height: 40px;
+          padding: 0 12px;
+          font-size: 13px;
+        }
+
         .photo-grid,
         .issue-library {
           grid-template-columns: 1fr;
@@ -1354,7 +1420,10 @@
           <span class="mark" aria-hidden="true">
             <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
           </span>
-          <span>FCI Convention Registration</span>
+          <span class="brand-wordmark">
+            <span class="brand-name">Floor Coverings International</span>
+            <span class="brand-subtitle">Convention Registration</span>
+          </span>
         </a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="#register">Register</a>
@@ -1621,7 +1690,8 @@
                   <li><span>Single occupancy</span><strong>$479</strong></li>
                   <li><span>Double occupancy</span><strong>$549</strong></li>
                   <li><span>Additional person in the room, maximum 4 per room</span><strong>$76</strong></li>
-                  <li><span>Children under 4 in the same room with parents</span><strong>Free</strong></li>
+                  <li><span>Children under 4 years old sharing the room with their parents are free, maximum 2 children</span><strong>Free</strong></li>
+                  <li><span>Children between 4 and 12 years old sharing the room with their parents, per child, per night</span><strong>$0.00 USD</strong></li>
                   <li><span>Children ages 13-17</span><strong>$76</strong></li>
                 </ul>
               </div>
@@ -1798,12 +1868,15 @@
       </div>
     </footer>
 
+    <a class="floating-top" href="#top" aria-label="Back to top">Back to top</a>
+
     <script>
       const hero = document.querySelector(".hero");
       const heroVideo = document.querySelector(".hero-video video");
       const videoToggle = document.querySelector(".video-toggle");
       const tabs = Array.from(document.querySelectorAll("[role='tab']"));
       const panels = Array.from(document.querySelectorAll("[role='tabpanel']"));
+      const floatingTop = document.querySelector(".floating-top");
 
       if (videoToggle && hero) {
         const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -1927,6 +2000,15 @@
 
         window.location.href = `mailto:fciconvention@floorcoveringsinternational.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       });
+
+      if (floatingTop) {
+        const toggleFloatingTop = () => {
+          floatingTop.classList.toggle("is-visible", window.scrollY > 560);
+        };
+
+        toggleFloatingTop();
+        window.addEventListener("scroll", toggleFloatingTop, { passive: true });
+      }
 
     </script>
   </body>
